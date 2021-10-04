@@ -37,10 +37,6 @@ import { Router } from '@angular/router';
 export class MainComponent implements OnInit {
 
   constructor(private router:Router) { }
-
-  prueba(){
-    this.router.navigate(['./heroes']);
-  }
   ngOnInit(): void {
   }
 

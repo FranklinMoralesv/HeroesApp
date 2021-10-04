@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
    }
 
    goToRegister(){
-    this.router.navigate(['./auth/register']);
+    this.router.navigate(['./auth/signup']);
    }
    validateField(field:string){
     return this.myForm.controls[field].errors && this.myForm.controls[field].touched;

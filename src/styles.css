@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+img{
+    width:100%;
+    border-radius:0.438rem;
+  }
+  small{
+    font-size: 0.7em;
+  }
+.spacer{
+    flex: 1 1 auto;
+}
+.warn{
+  font-size: 1.1em;
+  color: #f44336;
+}
+.text-center{
+  text-align: center;
+}
+/* .container{
+  margin:0 auto;
+  width: min(90%, 50rem);
+} */
+
+
+

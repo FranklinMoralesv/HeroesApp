@@ -1,0 +1,27 @@
+<h2 class="text-center login__title" mat-subheader>Iniciar Sesión</h2>
+
+<form [formGroup]=myForm (ngSubmit)="login()">
+  <mat-form-field  appearance="outline">
+    <mat-label >Email</mat-label>
+    <input formControlName="email" matInput required type="email">
+    <span class="warn" *ngIf="validateField('email')">Debe ser un email valido</span>
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline">
+    <mat-label>Enter your password</mat-label>
+    <input formControlName="password" required matInput [type]="hide ? 'password' : 'text'">
+    <span class="warn" *ngIf="validateField('password')">El password debe tener almenos 6 caracteres</span>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" class="login__button" (click)="login()" [disabled]="myForm.invalid">Ingresar</button>
+</form>
+
+<button class="login__button login__button--warn"  mat-button color="warn" (click)="goToRegister()">Crear Usuario</button>
+
+
+<!-- <pre>
+  {{myForm.value |json }}
+</pre> -->

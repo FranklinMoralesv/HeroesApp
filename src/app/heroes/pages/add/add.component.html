@@ -1,0 +1,79 @@
+<h1>{{(thereIsId)?'Editar':'Nuevo'}} Heroe <small>{{hero.superhero}}</small></h1>
+
+<div fxLayout="row" fxLayoutGap="40px" fxLayout.xs="column">
+
+    <div fxFlex="50" fxLayout="column" >
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+            <mat-form-field fxFlex="100" fxLayout.xs="column">
+                <mat-label>Super Heroe</mat-label>
+                <input matInput type="text" 
+                [(ngModel)]="hero.superhero" required>
+            </mat-form-field>
+    
+    
+            <mat-form-field fxFlex="100">
+                <mat-label>Alter Ego</mat-label>
+                <input matInput type="text" [(ngModel)]="hero.alter_ego" required>
+            </mat-form-field>
+        </div>
+        
+        <mat-form-field>
+            <mat-label>Primera Aparicion</mat-label>
+            <input matInput type="text" [(ngModel)]="hero.first_appearance" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Personajes</mat-label>
+            <input matInput type="text" [(ngModel)]="hero.characters" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Creador</mat-label>
+            <mat-select [(ngModel)]="hero.publisher" required>
+                <mat-option *ngFor="let publisher of publishers"
+                [value]="publisher.id">{{publisher.desc}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Foto URL</mat-label>
+            <input matInput type="url" [(ngModel)]="hero.alt_img" required>
+        </mat-form-field>
+        <br>
+        
+
+        <div fxLayout>
+            <button mat-raised-button color="primary" (click)="saveHero()">
+                <mat-icon>edit</mat-icon>
+                {{(thereIsId)?'Actualizar':'Crear'}}
+             </button>
+             <span class="spacer"></span>
+            <button *ngIf="thereIsId" mat-raised-button color="warn" (click)="deleteHero()">
+                <mat-icon>remove</mat-icon>
+                Borrar
+            </button>
+        </div>
+
+    </div>
+    
+    <div fxFlex="50">
+        <picture>
+            <source [src]="hero |image |imageWepb" type="image/wepb">
+            <img [src]="hero |image" alt="heroe">
+        </picture>
+    </div>
+
+</div>
+
+  
+<button class="goBackButton" mat-stroked-button color="warn" (click)="goBack()">Regresar..</button>
+
+
+    
+<!-- <div>
+    <pre>
+        {{hero | json}}
+    </pre>
+
+</div> -->
